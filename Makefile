@@ -1,6 +1,6 @@
 # -*- makefile -*-
 
-TEX=platex -kanji=sjis
+TEX=platex
 BIBTEX=bibtex
 DVI2PDF=dvipdfmx
 
@@ -22,7 +22,6 @@ convertmd: $(MDSCRIPT)
 	| pandoc -t latex \
 	| sed 's/includegraphics/includegraphics[width=0.6\\columnwidth]/g' \
 	| sed 's/\[htbp\]/\[tb\]/g' \
-	| nkf -s \
 	> $(MDSCRIPT:%.md=%.tex)
 
 
